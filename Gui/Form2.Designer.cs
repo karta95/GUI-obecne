@@ -34,8 +34,7 @@
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.poczatek = new System.Windows.Forms.TextBox();
-            this.textBox2 = new System.Windows.Forms.TextBox();
-            this.button1 = new System.Windows.Forms.Button();
+            this.koniec = new System.Windows.Forms.TextBox();
             this.Dalej_button = new System.Windows.Forms.Button();
             this.Anuluj_button = new System.Windows.Forms.Button();
             this.SuspendLayout();
@@ -99,24 +98,14 @@
             this.poczatek.Name = "poczatek";
             this.poczatek.Size = new System.Drawing.Size(100, 20);
             this.poczatek.TabIndex = 5;
-            
             // 
-            // textBox2
+            // koniec
             // 
-            this.textBox2.Enabled = false;
-            this.textBox2.Location = new System.Drawing.Point(220, 199);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(100, 20);
-            this.textBox2.TabIndex = 6;
-            // 
-            // button1
-            // 
-            this.button1.Location = new System.Drawing.Point(220, 225);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(100, 23);
-            this.button1.TabIndex = 7;
-            this.button1.Text = "Zaznacz zakres";
-            this.button1.UseVisualStyleBackColor = true;
+            this.koniec.Enabled = false;
+            this.koniec.Location = new System.Drawing.Point(220, 199);
+            this.koniec.Name = "koniec";
+            this.koniec.Size = new System.Drawing.Size(100, 20);
+            this.koniec.TabIndex = 6;
             // 
             // Dalej_button
             // 
@@ -139,7 +128,7 @@
             this.Anuluj_button.TabIndex = 9;
             this.Anuluj_button.Text = "Anuluj";
             this.Anuluj_button.UseVisualStyleBackColor = true;
-            this.Anuluj_button.Click += new System.EventHandler(this.button3_Click);
+            this.Anuluj_button.Click += new System.EventHandler(this.Anuluj_button_Click);
             // 
             // oknokonf1
             // 
@@ -149,8 +138,7 @@
             this.ClientSize = new System.Drawing.Size(471, 355);
             this.Controls.Add(this.Anuluj_button);
             this.Controls.Add(this.Dalej_button);
-            this.Controls.Add(this.button1);
-            this.Controls.Add(this.textBox2);
+            this.Controls.Add(this.koniec);
             this.Controls.Add(this.poczatek);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
@@ -160,9 +148,8 @@
             this.MaximumSize = new System.Drawing.Size(487, 394);
             this.MinimumSize = new System.Drawing.Size(487, 394);
             this.Name = "oknokonf1";
-            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "Konfiguracja - krok 1";
-            
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -175,8 +162,7 @@
         private System.Windows.Forms.RadioButton radioButton2;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.TextBox textBox2;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.TextBox koniec;
         private System.Windows.Forms.Button Dalej_button;
         private System.Windows.Forms.Button Anuluj_button;
         public System.Windows.Forms.TextBox poczatek;

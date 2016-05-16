@@ -35,6 +35,9 @@
             System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea2 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
             System.Windows.Forms.DataVisualization.Charting.Legend legend2 = new System.Windows.Forms.DataVisualization.Charting.Legend();
             System.Windows.Forms.DataVisualization.Charting.Series series2 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea3 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend3 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series3 = new System.Windows.Forms.DataVisualization.Charting.Series();
             this.BottomToolStripPanel = new System.Windows.Forms.ToolStripPanel();
             this.TopToolStripPanel = new System.Windows.Forms.ToolStripPanel();
             this.RightToolStripPanel = new System.Windows.Forms.ToolStripPanel();
@@ -50,8 +53,8 @@
             this.toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
             this.zakończToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripDropDownButton3 = new System.Windows.Forms.ToolStripDropDownButton();
-            this.wczytajToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.aktualizujToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.wyświetlBrakiToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripDropDownButton4 = new System.Windows.Forms.ToolStripDropDownButton();
             this.wybierzProfilToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.nowyProfilToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -59,9 +62,14 @@
             this.Analizabutton = new System.Windows.Forms.ToolStripButton();
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
+            this.wykres1 = new System.Windows.Forms.DataVisualization.Charting.Chart();
             this.wykres3 = new System.Windows.Forms.DataVisualization.Charting.Chart();
             this.wykres2 = new System.Windows.Forms.DataVisualization.Charting.Chart();
             this.tabPage2 = new System.Windows.Forms.TabPage();
+            this.wynikiSzczegolowe = new System.Windows.Forms.DataGridView();
+            this.Numer = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Sekunda = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Pokaz = new System.Windows.Forms.DataGridViewButtonColumn();
             this.pasek_stanu = new System.Windows.Forms.StatusStrip();
             this.toolStripStatusLabel1 = new System.Windows.Forms.ToolStripStatusLabel();
             this.toolStripStatusLabel2 = new System.Windows.Forms.ToolStripStatusLabel();
@@ -96,8 +104,11 @@
             this.toolStrip1.SuspendLayout();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.wykres1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.wykres3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.wykres2)).BeginInit();
+            this.tabPage2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.wynikiSzczegolowe)).BeginInit();
             this.pasek_stanu.SuspendLayout();
             this.toolStrip2.SuspendLayout();
             this.SuspendLayout();
@@ -188,6 +199,7 @@
             this.zapiszToolStripMenuItem1.Name = "zapiszToolStripMenuItem1";
             this.zapiszToolStripMenuItem1.Size = new System.Drawing.Size(169, 22);
             this.zapiszToolStripMenuItem1.Text = "Zapisz";
+            this.zapiszToolStripMenuItem1.Click += new System.EventHandler(this.zapiszToolStripMenuItem1_Click);
             // 
             // zapiszJakoToolStripMenuItem
             // 
@@ -200,6 +212,7 @@
             this.wczytajToolStripMenuItem.Name = "wczytajToolStripMenuItem";
             this.wczytajToolStripMenuItem.Size = new System.Drawing.Size(169, 22);
             this.wczytajToolStripMenuItem.Text = "Wczytaj ";
+            this.wczytajToolStripMenuItem.Click += new System.EventHandler(this.wczytajToolStripMenuItem_Click);
             // 
             // toolStripSeparator2
             // 
@@ -216,25 +229,26 @@
             // 
             this.toolStripDropDownButton3.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
             this.toolStripDropDownButton3.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.wczytajToolStripMenuItem1,
-            this.aktualizujToolStripMenuItem1});
+            this.aktualizujToolStripMenuItem1,
+            this.wyświetlBrakiToolStripMenuItem});
             this.toolStripDropDownButton3.Image = ((System.Drawing.Image)(resources.GetObject("toolStripDropDownButton3.Image")));
             this.toolStripDropDownButton3.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.toolStripDropDownButton3.Name = "toolStripDropDownButton3";
             this.toolStripDropDownButton3.Size = new System.Drawing.Size(44, 22);
             this.toolStripDropDownButton3.Text = "Baza";
             // 
-            // wczytajToolStripMenuItem1
-            // 
-            this.wczytajToolStripMenuItem1.Name = "wczytajToolStripMenuItem1";
-            this.wczytajToolStripMenuItem1.Size = new System.Drawing.Size(126, 22);
-            this.wczytajToolStripMenuItem1.Text = "Wczytaj";
-            // 
             // aktualizujToolStripMenuItem1
             // 
             this.aktualizujToolStripMenuItem1.Name = "aktualizujToolStripMenuItem1";
-            this.aktualizujToolStripMenuItem1.Size = new System.Drawing.Size(126, 22);
+            this.aktualizujToolStripMenuItem1.Size = new System.Drawing.Size(150, 22);
             this.aktualizujToolStripMenuItem1.Text = "Aktualizuj";
+            // 
+            // wyświetlBrakiToolStripMenuItem
+            // 
+            this.wyświetlBrakiToolStripMenuItem.Name = "wyświetlBrakiToolStripMenuItem";
+            this.wyświetlBrakiToolStripMenuItem.Size = new System.Drawing.Size(150, 22);
+            this.wyświetlBrakiToolStripMenuItem.Text = "Wyświetl braki";
+            this.wyświetlBrakiToolStripMenuItem.Click += new System.EventHandler(this.wyświetlBrakiToolStripMenuItem_Click);
             // 
             // toolStripDropDownButton4
             // 
@@ -290,6 +304,7 @@
             // 
             // tabPage1
             // 
+            this.tabPage1.Controls.Add(this.wykres1);
             this.tabPage1.Controls.Add(this.wykres3);
             this.tabPage1.Controls.Add(this.wykres2);
             this.tabPage1.Location = new System.Drawing.Point(4, 22);
@@ -300,60 +315,96 @@
             this.tabPage1.Text = "Wykresy";
             this.tabPage1.UseVisualStyleBackColor = true;
             // 
+            // wykres1
+            // 
+            chartArea1.Name = "ChartArea1";
+            this.wykres1.ChartAreas.Add(chartArea1);
+            legend1.Name = "Legend1";
+            this.wykres1.Legends.Add(legend1);
+            this.wykres1.Location = new System.Drawing.Point(0, 0);
+            this.wykres1.Margin = new System.Windows.Forms.Padding(0);
+            this.wykres1.Name = "wykres1";
+            this.wykres1.Palette = System.Windows.Forms.DataVisualization.Charting.ChartColorPalette.Pastel;
+            series1.BorderWidth = 3;
+            series1.ChartArea = "ChartArea1";
+            series1.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line;
+            series1.Legend = "Legend1";
+            series1.Name = "wykres1";
+            series1.XValueType = System.Windows.Forms.DataVisualization.Charting.ChartValueType.Int32;
+            series1.YValueType = System.Windows.Forms.DataVisualization.Charting.ChartValueType.Int32;
+            this.wykres1.Series.Add(series1);
+            this.wykres1.Size = new System.Drawing.Size(1236, 125);
+            this.wykres1.TabIndex = 1;
+            this.wykres1.Text = "wykres1";
+            this.wykres1.Paint += new System.Windows.Forms.PaintEventHandler(this.wykres1_Paint);
+            this.wykres1.MouseDown += new System.Windows.Forms.MouseEventHandler(this.wykres1_MouseDown);
+            this.wykres1.MouseHover += new System.EventHandler(this.wykres1_MouseHover);
+            this.wykres1.MouseMove += new System.Windows.Forms.MouseEventHandler(this.wykres1_MouseMove);
+            this.wykres1.MouseUp += new System.Windows.Forms.MouseEventHandler(this.wykres1_MouseUp);
+            // 
             // wykres3
             // 
             this.wykres3.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            chartArea1.Name = "ChartArea1";
-            this.wykres3.ChartAreas.Add(chartArea1);
-            legend1.Name = "Legend1";
-            this.wykres3.Legends.Add(legend1);
+            chartArea2.Name = "ChartArea1";
+            this.wykres3.ChartAreas.Add(chartArea2);
+            legend2.Name = "Legend1";
+            this.wykres3.Legends.Add(legend2);
             this.wykres3.Location = new System.Drawing.Point(10, 350);
             this.wykres3.Name = "wykres3";
             this.wykres3.Palette = System.Windows.Forms.DataVisualization.Charting.ChartColorPalette.Excel;
-            series1.BorderWidth = 3;
-            series1.ChartArea = "ChartArea1";
-            series1.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Spline;
-            series1.Color = System.Drawing.Color.Red;
-            series1.Legend = "Legend1";
-            series1.Name = "Wykres3";
-            series1.XValueType = System.Windows.Forms.DataVisualization.Charting.ChartValueType.Int32;
-            series1.YValueType = System.Windows.Forms.DataVisualization.Charting.ChartValueType.Int32;
-            this.wykres3.Series.Add(series1);
+            series2.BorderWidth = 3;
+            series2.ChartArea = "ChartArea1";
+            series2.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Spline;
+            series2.Color = System.Drawing.Color.Red;
+            series2.Legend = "Legend1";
+            series2.Name = "Wykres3";
+            series2.XValueType = System.Windows.Forms.DataVisualization.Charting.ChartValueType.Int32;
+            series2.YValueType = System.Windows.Forms.DataVisualization.Charting.ChartValueType.Int32;
+            this.wykres3.Series.Add(series2);
             this.wykres3.Size = new System.Drawing.Size(1236, 125);
             this.wykres3.TabIndex = 3;
             this.wykres3.Text = "chart3";
+            this.wykres3.Paint += new System.Windows.Forms.PaintEventHandler(this.wykres3_Paint);
+            this.wykres3.MouseDown += new System.Windows.Forms.MouseEventHandler(this.wykres3_MouseDown);
+            this.wykres3.MouseHover += new System.EventHandler(this.wykres3_MouseHover);
+            this.wykres3.MouseMove += new System.Windows.Forms.MouseEventHandler(this.wykres3_MouseMove);
+            this.wykres3.MouseUp += new System.Windows.Forms.MouseEventHandler(this.wykres3_MouseUp);
             // 
             // wykres2
             // 
             this.wykres2.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            chartArea2.Name = "ChartArea1";
-            this.wykres2.ChartAreas.Add(chartArea2);
-            legend2.Name = "Legend1";
-            this.wykres2.Legends.Add(legend2);
-            this.wykres2.Location = new System.Drawing.Point(10, 173);
+            chartArea3.Name = "ChartArea1";
+            this.wykres2.ChartAreas.Add(chartArea3);
+            legend3.Name = "Legend1";
+            this.wykres2.Legends.Add(legend3);
+            this.wykres2.Location = new System.Drawing.Point(0, 168);
             this.wykres2.Name = "wykres2";
             this.wykres2.Palette = System.Windows.Forms.DataVisualization.Charting.ChartColorPalette.Pastel;
-            series2.BorderWidth = 3;
-            series2.ChartArea = "ChartArea1";
-            series2.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line;
-            series2.Color = System.Drawing.Color.Lime;
-            series2.Legend = "Legend1";
-            series2.Name = "Wykres2";
-            series2.XValueType = System.Windows.Forms.DataVisualization.Charting.ChartValueType.Int32;
-            series2.YValueType = System.Windows.Forms.DataVisualization.Charting.ChartValueType.Int32;
-            this.wykres2.Series.Add(series2);
+            series3.BorderWidth = 3;
+            series3.ChartArea = "ChartArea1";
+            series3.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line;
+            series3.Color = System.Drawing.Color.Lime;
+            series3.Legend = "Legend1";
+            series3.Name = "Wykres2";
+            series3.XValueType = System.Windows.Forms.DataVisualization.Charting.ChartValueType.Int32;
+            series3.YValueType = System.Windows.Forms.DataVisualization.Charting.ChartValueType.Int32;
+            this.wykres2.Series.Add(series3);
             this.wykres2.Size = new System.Drawing.Size(1236, 125);
             this.wykres2.TabIndex = 2;
             this.wykres2.Text = "chart2";
+            this.wykres2.Paint += new System.Windows.Forms.PaintEventHandler(this.wykres2_Paint);
+            this.wykres2.MouseDown += new System.Windows.Forms.MouseEventHandler(this.wykres2_MouseDown);
             this.wykres2.MouseHover += new System.EventHandler(this.wykres2_MouseHover);
             this.wykres2.MouseMove += new System.Windows.Forms.MouseEventHandler(this.wykres2_MouseMove);
+            this.wykres2.MouseUp += new System.Windows.Forms.MouseEventHandler(this.wykres2_MouseUp);
             // 
             // tabPage2
             // 
+            this.tabPage2.Controls.Add(this.wynikiSzczegolowe);
             this.tabPage2.Location = new System.Drawing.Point(4, 22);
             this.tabPage2.Name = "tabPage2";
             this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
@@ -361,6 +412,45 @@
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "Wyniki szczegółowe";
             this.tabPage2.UseVisualStyleBackColor = true;
+            // 
+            // wynikiSzczegolowe
+            // 
+            this.wynikiSzczegolowe.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.wynikiSzczegolowe.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.wynikiSzczegolowe.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.Numer,
+            this.Sekunda,
+            this.Pokaz});
+            this.wynikiSzczegolowe.Location = new System.Drawing.Point(-4, 0);
+            this.wynikiSzczegolowe.Name = "wynikiSzczegolowe";
+            this.wynikiSzczegolowe.Size = new System.Drawing.Size(460, 558);
+            this.wynikiSzczegolowe.TabIndex = 0;
+            this.wynikiSzczegolowe.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.wynikiSzczegolowe_CellContentClick);
+            this.wynikiSzczegolowe.MouseClick += new System.Windows.Forms.MouseEventHandler(this.wynikiSzczegolowe_MouseClick);
+            // 
+            // Numer
+            // 
+            this.Numer.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.Numer.FillWeight = 38.07107F;
+            this.Numer.HeaderText = "Nr";
+            this.Numer.Name = "Numer";
+            this.Numer.ReadOnly = true;
+            // 
+            // Sekunda
+            // 
+            this.Sekunda.FillWeight = 130.9645F;
+            this.Sekunda.HeaderText = "Sekunda";
+            this.Sekunda.Name = "Sekunda";
+            this.Sekunda.ReadOnly = true;
+            // 
+            // Pokaz
+            // 
+            this.Pokaz.FillWeight = 130.9645F;
+            this.Pokaz.HeaderText = "Pokaż";
+            this.Pokaz.Name = "Pokaz";
+            this.Pokaz.ReadOnly = true;
+            this.Pokaz.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.Pokaz.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
             // 
             // pasek_stanu
             // 
@@ -568,7 +658,6 @@
             this.toolStripTextBox1.Font = new System.Drawing.Font("Segoe UI", 10F);
             this.toolStripTextBox1.Name = "toolStripTextBox1";
             this.toolStripTextBox1.Size = new System.Drawing.Size(100, 25);
-            this.toolStripTextBox1.Text = "1:25:15";
             // 
             // toolStripSeparator6
             // 
@@ -612,6 +701,7 @@
             this.toolStripButton8.Name = "toolStripButton8";
             this.toolStripButton8.Size = new System.Drawing.Size(58, 58);
             this.toolStripButton8.Text = "Wyeksportuj wykres";
+            this.toolStripButton8.Click += new System.EventHandler(this.toolStripButton8_Click);
             // 
             // toolStripButton9
             // 
@@ -622,6 +712,7 @@
             this.toolStripButton9.Name = "toolStripButton9";
             this.toolStripButton9.Size = new System.Drawing.Size(58, 58);
             this.toolStripButton9.Text = "Wyeksportuj zaznaczoną część wykresu";
+            this.toolStripButton9.Click += new System.EventHandler(this.toolStripButton9_Click);
             // 
             // Form1
             // 
@@ -638,12 +729,16 @@
             this.Text = "Program";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.Load += new System.EventHandler(this.Form1_Load);
+            this.Resize += new System.EventHandler(this.Form1_Resize);
             this.toolStrip1.ResumeLayout(false);
             this.toolStrip1.PerformLayout();
             this.tabControl1.ResumeLayout(false);
             this.tabPage1.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.wykres1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.wykres3)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.wykres2)).EndInit();
+            this.tabPage2.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.wynikiSzczegolowe)).EndInit();
             this.pasek_stanu.ResumeLayout(false);
             this.pasek_stanu.PerformLayout();
             this.toolStrip2.ResumeLayout(false);
@@ -665,7 +760,6 @@
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator2;
         private System.Windows.Forms.ToolStripMenuItem zakończToolStripMenuItem1;
         public System.Windows.Forms.ToolStripDropDownButton toolStripDropDownButton3;
-        private System.Windows.Forms.ToolStripMenuItem wczytajToolStripMenuItem1;
         private System.Windows.Forms.ToolStripMenuItem aktualizujToolStripMenuItem1;
         private System.Windows.Forms.ToolStripDropDownButton toolStripDropDownButton4;
         private System.Windows.Forms.ToolStripMenuItem wybierzProfilToolStripMenuItem;
@@ -713,6 +807,12 @@
         private System.Windows.Forms.ToolStripStatusLabel toolStripStatusLabel9;
         private System.Windows.Forms.ToolStripStatusLabel toolStripStatusLabel10;
         private System.ComponentModel.BackgroundWorker backgroundWorker1;
+        private System.Windows.Forms.DataVisualization.Charting.Chart wykres1;
+        private System.Windows.Forms.ToolStripMenuItem wyświetlBrakiToolStripMenuItem;
+        private System.Windows.Forms.DataGridView wynikiSzczegolowe;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Numer;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Sekunda;
+        private System.Windows.Forms.DataGridViewButtonColumn Pokaz;
     }
 }
 

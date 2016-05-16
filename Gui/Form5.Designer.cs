@@ -150,6 +150,7 @@
             this.Name = "oknokonf4";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Konfiguracja ";
+            this.Load += new System.EventHandler(this.oknokonf4_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 

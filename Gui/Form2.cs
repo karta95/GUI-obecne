@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.Globalization;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -12,56 +13,78 @@ namespace Gui
 {
     public partial class oknokonf1 : Form
     {
-        public oknokonf1()
+        private readonly Form1 _prev;
+        private string _beginPoint;
+        private string _endPoint;
+
+        public string BeginPoint
         {
-            InitializeComponent();
-            
+            get { return _beginPoint; }
+            set
+            {
+                _beginPoint = value;
+                poczatek.Text = _beginPoint.ToString(CultureInfo.InvariantCulture);
+            }
         }
 
-        private void radioButton2_CheckedChanged(object sender, EventArgs e)
+        //public bool IsSelectedAll
+        //{
+        //    get { return radioButton1.Checked; }
+        //}
+
+        public string EndPoint
         {
-            poczatek.Enabled = true;
-            textBox2.Enabled = true;
-            button1.Enabled = true;
-            
+            get { return _endPoint; }
+            set
+            {
+                _endPoint = value;
+                koniec.Text = _endPoint.ToString(CultureInfo.InvariantCulture);
+            }
+        }
+
+
+        public oknokonf1(Form1 prev, string start, string stop)
+        {
+            InitializeComponent();
+            _prev = prev;
+            BeginPoint = start;
+            EndPoint = stop;
+        }
+
+        public void HideMe()
+        {
+            this.Visible = false;
+        }
+
+        public void ShowMe()
+        {
+            this.Visible = true;
+        }
+
+ 
+        private void Dalej_button_Click(object sender, EventArgs e)
+        {
+            var nextStep = new oknokonf2(this);
+            nextStep.ShowDialog();
+            ShowMe();
+        }
+
+        private void Anuluj_button_Click(object sender, EventArgs e)
+        {
+            this.Close();
         }
 
         private void radioButton1_CheckedChanged(object sender, EventArgs e)
         {
             poczatek.Enabled = false;
-            textBox2.Enabled = false;
-            button1.Enabled = false;
+            koniec.Enabled = false;
+          
         }
 
-        private void button3_Click(object sender, EventArgs e)
+        private void radioButton2_CheckedChanged(object sender, EventArgs e)
         {
-            this.Close();
+            poczatek.Enabled = true;
+            koniec.Enabled = true;
         }
-
-       
-
-        public string wlasciwosc
-        {
-            get { return poczatek.Text; }
-            set { poczatek.Text = value; }
-
-        }
-
-         private void label4_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void Dalej_button_Click(object sender, EventArgs e)
-        {
-            
-            oknokonf2 okno2 = new oknokonf2();
-            okno2.Show();
-            this.Visible = false;
-            okno2.zwrocokno(this);
-        }
-
-        
-        
     }
 }

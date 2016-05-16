@@ -49,6 +49,7 @@
             this.llistaprofili_listBox.Name = "llistaprofili_listBox";
             this.llistaprofili_listBox.Size = new System.Drawing.Size(166, 225);
             this.llistaprofili_listBox.TabIndex = 0;
+            this.llistaprofili_listBox.SelectedIndexChanged += new System.EventHandler(this.llistaprofili_listBox_SelectedIndexChanged);
             // 
             // listaparametro_listBox
             // 
@@ -136,8 +137,9 @@
             this.MaximumSize = new System.Drawing.Size(487, 394);
             this.MinimumSize = new System.Drawing.Size(487, 394);
             this.Name = "oknokonf2";
-            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "Konfiguracja - krok 2";
+            this.Load += new System.EventHandler(this.oknokonf2_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 
